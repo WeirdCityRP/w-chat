@@ -13,7 +13,7 @@ RegisterCommand( 'ooc', (src, args) => {
     const msg = args.join(' ');
     emitNet('ooc', playerName, msg);
 }, false );
-Chat.addSuggestion( 'ooc', 'Send OOC message.', [{ name: "Message", help: "Example: /ooc Hi, also this is a test" }] );
+Chat.addSuggestion( 'ooc', 'Send OOC message.', [{ name: "Message", help: "Example: /ooc Hi" }] );
 
 RegisterCommand( 'oocoff', () => {
     if (!Chat.OOC) {
