@@ -5,7 +5,7 @@ const Chat = {
 };
 
 RegisterCommand( 'ooc', (src, args) => {
-    if (!Chat.OOC) {
+    if (!Chat.OOC || args.length === 0) {
         return;
     }
 
