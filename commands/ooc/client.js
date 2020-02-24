@@ -1,11 +1,11 @@
-const chat = {
+const Chat = {
     OOC: true,
-    addMessage: exports['w-base'].addMessage,
+    localMessage: exports['w-base'].localMessage,
     addSuggestion: exports['w-base'].addSuggestion
 };
 
 RegisterCommand( 'ooc', (src, args) => {
-    if (!chat.OOC) {
+    if (!Chat.OOC) {
         return;
     }
 
@@ -13,26 +13,26 @@ RegisterCommand( 'ooc', (src, args) => {
     const msg = args.join(' ');
     emitNet('ooc', playerName, msg);
 }, false );
-chat.addSuggestion( '/ooc', 'Send OOC message.', [{ name: "Message", help: "Example: /ooc Hi" }] );
+Chat.addSuggestion( '/ooc', 'Send OOC message.', [{ name: "Message", help: "Example: /ooc Hi" }] );
 
 RegisterCommand( 'oocoff', () => {
-    if (!chat.OOC) {
-        chat.addMessage('OOC is already off.');
+    if (!Chat.OOC) {
+        Chat.localMessage('OOC is already off.');
         return;
     }
 
-    chat.OOC = false;
-    chat.addMessage('OOC turned off.');
+    Chat.OOC = false;
+    Chat.localMessage('OOC turned off.');
 }, false );
-chat.addSuggestion( '/oocoff', 'Turn off OOC.' );
+Chat.addSuggestion( '/oocoff', 'Turn off OOC.' );
 
 RegisterCommand( 'oocon', () => {
-    if (chat.OOC) {
-        chat.addMessage('OOC is already on.');
+    if (Chat.OOC) {
+        Chat.localMessage('OOC is already on.');
         return;
     }
 
-    chat.OOC = true;
-    chat.addMessage('OOC turned on.');
+    Chat.OOC = true;
+    Chat.localMessage('OOC turned on.');
 }, false );
-chat.addSuggestion( '/oocon', 'Turn on OOC.' );
+Chat.addSuggestion( '/oocon', 'Turn on OOC.' );
