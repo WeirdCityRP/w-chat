@@ -1,5 +1,3 @@
 onNet('ooc', (playerName, msg) => {
-    emitNet("chat:addMessage", -1, {
-        args: [ `OOC ${playerName}`, msg ]
-    });
+    exports['w-base'].globalMessage( [`OOC ${playerName}`, msg] );
 });

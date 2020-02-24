@@ -13,26 +13,26 @@ RegisterCommand( 'ooc', (src, args) => {
     const msg = args.join(' ');
     emitNet('ooc', playerName, msg);
 }, false );
-Chat.addSuggestion( '/ooc', 'Send OOC message.', [{ name: "Message", help: "Example: /ooc Hi" }] );
+Chat.addSuggestion( 'ooc', 'Send OOC message.', [{ name: "Message", help: "Example: /ooc Hi, also this is a test" }] );
 
 RegisterCommand( 'oocoff', () => {
     if (!Chat.OOC) {
-        Chat.localMessage('OOC is already off.');
+        Chat.localMessage( ['OOC is already off.'] );
         return;
     }
 
     Chat.OOC = false;
-    Chat.localMessage('OOC turned off.');
+    Chat.localMessage( ['OOC turned off.'] );
 }, false );
-Chat.addSuggestion( '/oocoff', 'Turn off OOC.' );
+Chat.addSuggestion( 'oocoff', 'Turn off OOC.' );
 
 RegisterCommand( 'oocon', () => {
     if (Chat.OOC) {
-        Chat.localMessage('OOC is already on.');
+        Chat.localMessage( ['OOC is already on.'] );
         return;
     }
 
     Chat.OOC = true;
-    Chat.localMessage('OOC turned on.');
+    Chat.localMessage( ['OOC turned on.'] );
 }, false );
-Chat.addSuggestion( '/oocon', 'Turn on OOC.' );
+Chat.addSuggestion( 'oocon', 'Turn on OOC.' );
