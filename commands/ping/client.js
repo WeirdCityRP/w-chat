@@ -1,1 +1,3 @@
-exports['w-base'].addSuggestion( 'ping', 'Display your ping.' );
+setImmediate(() => {
+    emit('chat:addSuggestion', '/ping', 'Display ping.')
+});

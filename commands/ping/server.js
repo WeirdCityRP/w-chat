@@ -1,4 +1,4 @@
 RegisterCommand( 'ping', src => {
     const playerPing = GetPlayerPing(src);
-    exports['w-base'].globalMessage( src, ['PING', playerPing] );
+    exports['w-base'].addMessage( src, ['PING', playerPing] );
 }, false );

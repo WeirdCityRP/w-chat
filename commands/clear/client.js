@@ -1,7 +1,15 @@
-const addSuggestion = exports['w-base'].addSuggestion;
-
+/**
+ * Commands.
+ */
 RegisterCommand( 'cls', () => emit('chat:clear'), false );
-addSuggestion( 'cls', 'Clears the chat screen.' );
-
 RegisterCommand( 'clsall', () => emitNet('w-chat:clearAll'), false );
-addSuggestion( 'clsall', 'Clears the chat screen for all players.' );
+
+/**
+ * Command Suggestions.
+ */
+setImmediate(() => {
+    emit('chat:addSuggestions', [
+        { name: '/cls', help: 'Clears the chat.' },
+        { name: '/clsall', help: 'Clear the chat for all players.' }
+    ]);
+});

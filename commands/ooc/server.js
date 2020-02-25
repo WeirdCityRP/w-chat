@@ -1,3 +1,3 @@
-onNet('ooc', (playerName, msg) => {
-    exports['w-base'].globalMessage( -1, [`OOC ${playerName}`, msg] );
+onNet('ooc:sendMessage', (playerName, msg) => {
+    exports['w-base'].addMessage( -1, [`OOC ${playerName}`, msg] );
 });
