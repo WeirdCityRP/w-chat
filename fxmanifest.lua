@@ -12,5 +12,3 @@ server_scripts {
     'commands/ooc/server.js',
     'commands/ping/server.js'
 }
-
-dependency 'w-base'

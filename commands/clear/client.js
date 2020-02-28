@@ -1,8 +1,4 @@
-/**
- * Commands.
- */
 RegisterCommand( 'cls', () => emit('chat:clear'), false );
-RegisterCommand( 'clsall', () => emitNet('w-chat:clearAll'), false );
 
 /**
  * Command Suggestions.

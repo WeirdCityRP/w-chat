@@ -1,3 +1,3 @@
 onNet('ooc:sendMessage', (playerName, msg) => {
-    exports['w-base'].addMessage( -1, [`OOC ${playerName}`, msg] );
+	emitNet( 'chat:addMessage', -1, {args: [`OOC ${playerName}`, msg]} );
 });

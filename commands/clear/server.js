@@ -1,4 +1,7 @@
-/**
- * Clear chat screen for all connected players.
- */
-onNet('w-chat:clearAll', () => emitNet('chat:clear', -1));
+RegisterCommand( 'clsall', src => {
+	if (IsPlayerAceAllowed( src, 'admin' )) {
+		emitNet( 'chat:clear', -1 );
+	} else {
+		emitNet( 'chat:addMessage', src, {args: ['SYSTEM', 'This command is only available for admins.']} );
+	};
+}, false );
