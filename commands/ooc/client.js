@@ -2,34 +2,34 @@ const OOC = {
 	isEnabled: true
 };
 
-RegisterCommand( 'ooc', (src, args) => {
+RegisterCommand('ooc', (src, args) => {
 	if (!OOC.isEnabled || args.length === 0) {
 		return;
 	}
 
-	const playerName = GetPlayerName( PlayerId() );
+	const playerName = GetPlayerName(PlayerId());
 	const msg = args.join(' ');
 
 	emitNet('ooc:sendMessage', playerName, msg);
-}, false );
+}, false);
 
-RegisterCommand( 'oocoff', () => {
+RegisterCommand('oocoff', () => {
 	if (OOC.isEnabled) {
 		OOC.isEnabled = false;
-		emit( 'chat:addMessage', {args: ['OOC turned off.']} );
+		emit('chat:addMessage', { args: ['OOC turned off.'] });
 	} else {
-		emit( 'chat:addMessage', {args: ['OOC is already off.']} );
+		emit('chat:addMessage', { args: ['OOC is already off.'] });
 	}
-}, false );
+}, false);
 
-RegisterCommand( 'oocon', () => {
+RegisterCommand('oocon', () => {
 	if (!OOC.isEnabled) {
 		OOC.isEnabled = true;
-		emit( 'chat:addMessage', {args: ['OOC is turned on.']} );
+		emit('chat:addMessage', { args: ['OOC is turned on.'] });
 	} else {
-		emit( 'chat:addMessage', {args: ['OOC is already on.']} );
+		emit('chat:addMessage', { args: ['OOC is already on.'] });
 	}
-}, false );
+}, false);
 
 /**
  * Command Suggestions.

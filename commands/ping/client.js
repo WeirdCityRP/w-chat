@@ -1,3 +1,3 @@
 setImmediate(() => {
-    emit('chat:addSuggestion', '/ping', 'Display ping.')
+	emit('chat:addSuggestion', '/ping', 'Display ping.')
 });
